@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll.test"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <GridView
+        android:id="@+id/gv.test"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:horizontalSpacing="20dp"
+        android:clickable="true"
+        android:longClickable="false"
+        android:numColumns="5">
+
+    </GridView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:longClickable="true"
+        android:clickable="false"
+        android:id="@+id/rl.test">
+    </RelativeLayout>
+</RelativeLayout>

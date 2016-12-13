@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="1dp">
+
+        <TextView
+            android:id="@+id/tv.showAllApp"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="#3F51B5" />
+
+        <TextView
+            android:id="@+id/tv.ranking"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:layout_toRightOf="@id/tv.showAllApp"
+            android:background="#3F51B5" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:background="#3F51B5"
+            android:gravity="center"
+            android:text="Đọc Tiếp"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:textStyle="italic|bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="1dp">
+
+        <ImageView
+            android:id="@+id/iv.imageBackground"
+            android:layout_width="81dp"
+            android:layout_height="81dp"
+            android:background="#3F51B5" />
+
+        <TextView
+            android:id="@+id/tv.content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="80dp"
+            android:layout_toRightOf="@id/iv.imageBackground"
+            android:padding="5dp"
+            android:text="AAA"
+            android:textColor="#000000" />
+
+        <ImageView
+            android:id="@+id/iv.rankingApp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentEnd="true"
+            android:background="#3F51B5" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="1dp"
+        android:background="#3F51B5"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv.loadChap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="Danh sách chương"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff">
+
+        </View>
+
+        <TextView
+            android:id="@+id/tv.loadPage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="Load page"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="1dp"
+        android:background="#3F51B5"
+        android:gravity="center|left"
+        android:text="  Nội Dung"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="1dp"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/lv.content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </ListView>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:background="#3F51B5"
+            android:gravity="center|left"
+            android:text="  Chapter"
+            android:textColor="#ffffff"
+            android:textSize="12sp" />
+
+        <ListView
+            android:id="@+id/lv.chapter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </ListView>
+
+        <TextView
+            android:id="@+id/tv.ads"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"></TextView>
+    </LinearLayout>
+</LinearLayout>

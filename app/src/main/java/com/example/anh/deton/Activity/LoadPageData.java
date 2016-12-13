@@ -13,6 +13,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by Anh on 9/27/2016.
@@ -23,6 +24,7 @@ public class LoadPageData extends Activity implements NetworkListenInterface {
     private int count = 0;
     private String link = "";
     private int pageNum = -1;
+    private String mChapter = "";
 
     public int getPageNum() {
         return pageNum;
@@ -60,6 +62,10 @@ public class LoadPageData extends Activity implements NetworkListenInterface {
         this.network = new NetworkAdapter();
     }
 
+    public String getChapter(){
+        return mChapter;
+    }
+
     public void loadData(int pageNum,String url) {
         network = NetworkAdapter.getInstance();
         network.setNetworkListener(this);
@@ -81,14 +87,7 @@ public class LoadPageData extends Activity implements NetworkListenInterface {
         }
 
     }
-
-    public void receiveChapter(Document doc) {
-        // to do save chapter item
-        saveEachChapter(doc);
-
-        // inc current item that will load.
-        setCount(getCount() + 1);
-
+    public void requestData(){
         if (getCount() <= getListChap().size()) {
 
             // call next link chapter
@@ -97,9 +96,19 @@ public class LoadPageData extends Activity implements NetworkListenInterface {
         else {
             List<ChapterModel> abcd =  RealmUtils.with(this).getAllChapter();
             for(ChapterModel i: abcd) {
-                System.out.println("---------->" + i.getShowName());
+                mChapter = i.getShowName();
+                System.out.println("---------->" + mChapter);
             }
         }
+    }
+    public void receiveChapter(Document doc) {
+        // to do save chapter item
+        saveEachChapter(doc);
+
+        // inc current item that will load.
+        setCount(getCount() + 1);
+
+        requestData();
     }
 
     public void saveEachChapter(Document doc) {
@@ -115,7 +124,7 @@ public class LoadPageData extends Activity implements NetworkListenInterface {
         ChapterModel chapItem = new ChapterModel();
         chapItem.setId(this.getPageNum() + "P" + getCount());
         chapItem.setStoryId(Constant.STORYID);
-        chapItem.setChapterNumber(eleTag1.text());
+//        chapItem.setChapterNumber(eleTag1.text());
         chapItem.setPageNumber(this.getPageNum());
         chapItem.setChapterName(classElement.text());
         chapItem.setShowName(classElement.text());

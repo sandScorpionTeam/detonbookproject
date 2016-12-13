@@ -1,6 +1,7 @@
 package com.example.anh.deton.Activity;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.example.anh.deton.Adapter.NetworkAdapter;
 import com.example.anh.deton.Global.Constant;
@@ -20,6 +21,8 @@ import io.realm.Realm;
  */
 public class LoadInitData extends Activity implements NetworkListenInterface {
     private NetworkAdapter network;
+
+    public static String strtmp;
 
     public LoadInitData() {
         network = new NetworkAdapter();
@@ -42,6 +45,8 @@ public class LoadInitData extends Activity implements NetworkListenInterface {
         int newLastPage = 0;
 
         Element classElement = doc.getElementsByAttributeValue("class", "w3-pagination paging").first();
+        System.out.println("CCCCCCC" + classElement.text());
+        Log.e("BBBBBBBBB", classElement.text());
         Elements arrLinks = classElement.getElementsByAttribute("href");
 
         Element lastElement = arrLinks.last();
@@ -89,11 +94,11 @@ public class LoadInitData extends Activity implements NetworkListenInterface {
         linkUpdate = linkUpdate.first().getElementsByAttribute("href");
 
         for  (Element i : linkUpdate) {
-            String strtmp = i.attr("href");
-            System.out.println("--------" + strtmp);
+            strtmp = i.attr("href");
+            System.out.println("---AA-----" + strtmp);
         }
 
-        // to do update view of fragment Update
+        //TODO update view of fragment Update
     }
 
     @Override
