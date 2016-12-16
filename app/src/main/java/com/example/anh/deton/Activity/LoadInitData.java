@@ -31,13 +31,13 @@ public class LoadInitData extends Activity implements NetworkListenInterface {
     public void loadData() {
         network = NetworkAdapter.getInstance();
         network.setNetworkListener(this);
-//        network.RequestData(Constant.URL_WEBTRUYEN);
-        network.RequestData("http://webtruyen.com/de-ton/hang-phuc-yeu-vuong_324049.html");
+        network.RequestData(Constant.URL_WEBTRUYEN);
     }
 
     public void updateNewConfig(Document doc) {
         checkAndUpdatePage(doc);
         checkAndUpdateNewChapter(doc);
+        // call LOADPAGEDATA CLASS
     }
 
     public void checkAndUpdatePage(Document doc) {
@@ -88,13 +88,15 @@ public class LoadInitData extends Activity implements NetworkListenInterface {
 
     public void checkAndUpdateNewChapter(Document doc) {
         // find update link
+//        System.out.println("----doc.text()---" + doc);
         Element classElement = doc.getElementsByAttributeValue("class", "list-chapter").first();
 
         Elements linkUpdate = classElement.getElementsByTag("ul");
         linkUpdate = linkUpdate.first().getElementsByAttribute("href");
 
         for  (Element i : linkUpdate) {
-            strtmp = i.attr("href");
+//            strtmp = i.attr("href");
+            strtmp = i.attr("title");
             System.out.println("---AA-----" + strtmp);
         }
 
